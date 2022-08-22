@@ -1,9 +1,7 @@
-
 /*
 IMPORTANT
 SliverAppBar must be used without anything around him (ex. no columns/row or anything)
 */
-
 
 import 'package:flutter/material.dart';
 
@@ -70,7 +68,7 @@ class _sliverAppBarState extends State<sliverAppBar> {
           ),
           Row(
             children: <Widget>[
-              const Text('snap'),
+              const Text('Snap'),
               Switch(
                 onChanged: (bool val) {
                   setState(() {
