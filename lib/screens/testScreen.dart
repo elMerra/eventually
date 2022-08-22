@@ -12,7 +12,7 @@ class TestScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: const <Widget>[Button1(), Button2(), Button3(), Button4()],
+        children: const <Widget>[],
       ),
     );
   }
