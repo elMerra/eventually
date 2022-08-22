@@ -54,6 +54,23 @@ class _UserNameInputState extends State<UserNameInput> {
             validator: _validateName,
           ),
           const SizedBox(height: 24.0),
+          //Password form
+          TextFormField(
+            textCapitalization: TextCapitalization.words,
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              filled: true,
+              icon: Icon(Icons.password),
+              hintText: 'Which password do you want?',
+              labelText: 'Password',
+            ),
+            onFieldSubmitted: (String? value) {
+              this._password = value;
+              print('password=$_password');
+            },
+            validator: _validateName,
+          ),
+          const SizedBox(height: 24.0),
           //Phone number form
           TextFormField(
             decoration: const InputDecoration(
@@ -75,17 +92,18 @@ class _UserNameInputState extends State<UserNameInput> {
           const SizedBox(height: 24.0),
           //Email form
           TextFormField(
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                filled: true,
-                icon: Icon(Icons.email),
-                hintText: 'Your email adress',
-                labelText: 'Email',
-              ),
-              keyboardType: TextInputType.emailAddress,
-              onSaved: (String? value) {
-                print('email$_email');
-              })
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              filled: true,
+              icon: Icon(Icons.email),
+              hintText: 'Your email adress',
+              labelText: 'Email',
+            ),
+            keyboardType: TextInputType.emailAddress,
+            onSaved: (String? value) {
+              print('email$_email');
+            },
+          ),
         ],
       ),
     );
