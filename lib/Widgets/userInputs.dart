@@ -34,7 +34,7 @@ class _UserNameInputState extends State<UserNameInput> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: EdgeInsets.only(top: 350),
+        margin: const EdgeInsets.only(top: 350),
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(

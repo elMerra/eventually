@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 //This is button 1
 class Button1 extends StatelessWidget {
-  const Button1({Key? key}) : super(key: key);
+  final String buttonText;
+
+  const Button1({Key? key, required this.buttonText}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,7 @@ class Button1 extends StatelessWidget {
     return Center(
       child: ButtonBar(
         children: <Widget>[
-          ElevatedButton(
-              onPressed: _showSnack, child: const Text('ElevatedButton'))
+          ElevatedButton(onPressed: _showSnack, child: Text(buttonText))
         ],
       ),
     );
@@ -26,7 +27,12 @@ class Button1 extends StatelessWidget {
 
 //This is button 2
 class Button2 extends StatelessWidget {
-  const Button2({Key? key}) : super(key: key);
+  final String buttonText;
+
+  const Button2({
+    Key? key,
+    required this.buttonText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +48,7 @@ class Button2 extends StatelessWidget {
         children: <Widget>[
           TextButton(
             onPressed: _showSnack,
-            child: const Text('TextButton'),
+            child: Text(buttonText),
           ),
         ],
       ),
@@ -52,7 +58,12 @@ class Button2 extends StatelessWidget {
 
 //This is button 3
 class Button3 extends StatelessWidget {
-  const Button3({Key? key}) : super(key: key);
+  final String buttonText;
+
+  const Button3({
+    Key? key,
+    required this.buttonText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +78,7 @@ class Button3 extends StatelessWidget {
         children: <Widget>[
           OutlinedButton(
             onPressed: _showSnack,
-            child: const Text('OutlinedButton'),
+            child: Text(buttonText),
           ),
         ],
       ),
@@ -77,7 +88,11 @@ class Button3 extends StatelessWidget {
 
 //This is button 4
 class Button4 extends StatelessWidget {
-  const Button4({Key? key}) : super(key: key);
+  final iconName;
+  final String buttonText;
+
+  const Button4({Key? key, required this.iconName, required this.buttonText})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +102,11 @@ class Button4 extends StatelessWidget {
             duration: Duration(milliseconds: 500),
           ),
         );
-    return Center(
-      child: IconButton(
-        iconSize: 32.0,
-        icon: const Icon(Icons.call),
-        tooltip: 'Place a phone call',
-        onPressed: _showSnack,
-      ),
+    return IconButton(
+      iconSize: 32.0,
+      icon: Icon(iconName),
+      tooltip: 'Place a phone call',
+      onPressed: _showSnack,
     );
   }
 }
