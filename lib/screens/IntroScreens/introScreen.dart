@@ -8,14 +8,14 @@ class IntroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(30),
+        padding: const EdgeInsets.all(30),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
             Image.asset('assets/images/image.png'),
             const Text(
                 'Al tocar en "de acuerdo", confirmas que has leído la política de protección de datos y aceptas las condiciones del servicio'),
+            const Button1(buttonText: 'DE ACUERDO', iconName: Icons.check)
           ],
         ),
       ),

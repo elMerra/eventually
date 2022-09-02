@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 //This is button 1
 class Button1 extends StatelessWidget {
+  final iconName;
   final String buttonText;
 
-  const Button1({Key? key, required this.buttonText}) : super(key: key);
+  const Button1({Key? key, required this.buttonText, required this.iconName})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +17,19 @@ class Button1 extends StatelessWidget {
           ),
         );
 
-    return Center(
-      child: ButtonBar(
-        children: <Widget>[
-          ElevatedButton(onPressed: _showSnack, child: Text(buttonText))
-        ],
-      ),
+    return ButtonBar(
+      alignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: _showSnack,
+          child: Row(
+            children: <Widget>[
+              Icon(iconName),
+              Text(buttonText),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -43,15 +52,14 @@ class Button2 extends StatelessWidget {
           ),
         );
 
-    return Center(
-      child: ButtonBar(
-        children: <Widget>[
-          TextButton(
-            onPressed: _showSnack,
-            child: Text(buttonText),
-          ),
-        ],
-      ),
+    return ButtonBar(
+      alignment: MainAxisAlignment.center,
+      children: <Widget>[
+        TextButton(
+          onPressed: _showSnack,
+          child: Text(buttonText),
+        ),
+      ],
     );
   }
 }
@@ -89,10 +97,8 @@ class Button3 extends StatelessWidget {
 //This is button 4
 class Button4 extends StatelessWidget {
   final iconName;
-  final String buttonText;
 
-  const Button4({Key? key, required this.iconName, required this.buttonText})
-      : super(key: key);
+  const Button4({Key? key, required this.iconName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
