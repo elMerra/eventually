@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import './screens/testScreen.dart';
+import './screens/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     );
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TestScreen(),
+      home: Splash(),
     );
   }
 }
