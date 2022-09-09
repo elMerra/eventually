@@ -23,18 +23,20 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: const Icon(
-          Icons.settings,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.settings),
           color: Colors.black,
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.map),
+            icon: const Icon(Icons.map),
             color: Colors.black,
           )
         ],
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Button2(buttonText: 'Amigos'),
             SizedBox(
@@ -52,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        child: GoogleMap(
+        child: const GoogleMap(
           initialCameraPosition:
               CameraPosition(target: sourceLocation, zoom: 14.1),
         ),
