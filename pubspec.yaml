@@ -36,6 +36,10 @@ dependencies:
   http: ^0.13.5
   animated_radial_menu: ^0.0.1
   font_awesome_flutter: ^9.2.0
+  google_maps_flutter: ^2.1.7
+  location: ^4.4.0
+  flutter_svg: ^1.1.0
+  flutter_polyline_points: ^1.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -64,6 +68,7 @@ flutter:
   - assets/images/logo.png
   - assets/images/icon.png
   - assets/images/name.png
+  - assets/images/black.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -57,7 +57,10 @@ class Button2 extends StatelessWidget {
       children: <Widget>[
         TextButton(
           onPressed: _showSnack,
-          child: Text(buttonText),
+          child: Text(
+            buttonText,
+            style: const TextStyle(color: Colors.black),
+          ),
         ),
       ],
     );

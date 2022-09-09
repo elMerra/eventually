@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 
+const String google_api_key = "AIzaSyC3W6xVDZS434POjuZhWvnmDuKwcp1e7YY";
 // Repeated code for TextField
 const kTextFiledInputDecoration = InputDecoration(
   focusedBorder: UnderlineInputBorder(

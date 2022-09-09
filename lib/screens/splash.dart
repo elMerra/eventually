@@ -17,7 +17,7 @@ class _SplashState extends State<Splash> {
 
   _navigatetohome() async {
     await Future.delayed(
-      const Duration(seconds: 0),
+      const Duration(seconds: 1),
       () {},
     );
     Navigator.pushReplacement(
