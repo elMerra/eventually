@@ -7,7 +7,7 @@ class TestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: LoginApp(),
+      child: LoginScreen(),
     );
   }
 }

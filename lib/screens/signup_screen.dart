@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pandiller_alpha/animation/animations.dart';
-import 'package:pandiller_alpha/screens/signup_screen.dart';
+import 'package:pandiller_alpha/screens/login_screen.dart';
 
 import '../constants.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen({Key? key}) : super(key: key);
+class SignUPScreen extends StatefulWidget {
+  SignUPScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUPScreen> createState() => _SignUPScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUPScreenState extends State<SignUPScreen> {
   final feature = ["Login", "Sign Up"];
 
-  int i = 0;
-  
-/*
-Instagram: @CodeWithFlexz
-Github: AmirBayat0
-Youtube: Programming with Flexz
-*/
+  int i = 1;
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -31,7 +26,7 @@ Youtube: Programming with Flexz
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: Scaffold(
             backgroundColor: Color(0xfffdfdfdf),
-            body: i == 0
+            body: i == 1
                 ? SingleChildScrollView(
                     child: Column(
                       children: [
@@ -39,12 +34,8 @@ Youtube: Programming with Flexz
                           margin: EdgeInsets.all(25),
                           child: Column(
                             children: [
-
-
-
-                              Row(
-                                // TabBar Code
-                                children: [
+                              // TabBar Code
+                              Row(children: [
                                 Container(
                                   height: height / 19,
                                   width: width / 2,
@@ -89,8 +80,6 @@ Youtube: Programming with Flexz
                                                       color: Colors.black,
                                                     )
                                                   : Container(),
-                                            
-                                            
                                             ],
                                           ),
                                         );
@@ -99,11 +88,6 @@ Youtube: Programming with Flexz
                                   ),
                                 ),
                                 Expanded(child: Container()),
-
-
-
-
-
 
                                 // Profile
                                 RightAnime(
@@ -131,16 +115,9 @@ Youtube: Programming with Flexz
                                 ),
                               ]),
 
-
-
-
-
                               SizedBox(
-                                height: 50,
+                                height: 30,
                               ),
-                              
-
-
 
                               // Top Text
                               Container(
@@ -154,16 +131,31 @@ Youtube: Programming with Flexz
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text("Welcome Back,",
+                                      RichText(
+                                        text: TextSpan(
+                                          text: "Hello ",
                                           style: TextStyle(
+                                            color: Colors.black,
                                             fontSize: 40,
                                             fontWeight: FontWeight.w300,
-                                          )),
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                              text: "Beautiful,",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 40,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
                                       Text(
-                                        "AmirHossein",
+                                        "Enter your informations below or \nlogin with a social account",
                                         style: TextStyle(
-                                          fontSize: 40,
-                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
                                     ],
@@ -171,128 +163,103 @@ Youtube: Programming with Flexz
                                 ),
                               ),
 
-
-
                               SizedBox(
-                                height: height / 14,
+                                height: height / 18,
                               ),
 
-
-
-
                               // TextFiled
-                              Column(
-                                children: [
-                                  Container(
-                                    width: width / 1.2,
-                                    height: height / 3.10,
-                                    //  color: Colors.red,
-                                    child: TopAnime(
-                                      1,
-                                      15,
-                                      curve: Curves.easeInExpo,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          TextField(
-                                            // readOnly: true, // * Just for Debug
-                                            cursorColor: Colors.black,
-                                            style:
-                                                TextStyle(color: Colors.black),
-                                            showCursor: true,
-                                            //cursorColor: mainColor,
-                                            decoration:
-                                                kTextFiledInputDecoration,
-                                          ),
-                                          SizedBox(
-                                            height: 25,
-                                          ),
-                                          TextField(
-                                              // readOnly: true, // * Just for Debug
-                                              cursorColor: Colors.black,
-                                              style: TextStyle(
-                                                  color: Colors.black),
-                                              showCursor: true,
-                                              //cursorColor: mainColor,
-                                              decoration:
-                                                  kTextFiledInputDecoration
-                                                      .copyWith(
-                                                          labelText:
-                                                              "Password")),
-
-
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-
-
-
-                                          // FaceBook and Google ICon
-                                          TopAnime(
-                                            1,
-                                            10,
-                                            child: Row(
-                                              children: [
-                                                IconButton(
-                                                  icon: FaIcon(
-                                                    FontAwesomeIcons.facebookF,
-                                                    size: 30,
-                                                  ),
-                                                  onPressed: () {},
-                                                ),
-                                                SizedBox(
-                                                  width: 15,
-                                                ),
-                                                IconButton(
-                                                  icon: FaIcon(
-                                                      FontAwesomeIcons
-                                                          .googlePlusG,
-                                                      size: 35),
-                                                  onPressed: () {},
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                        ],
+                              Container(
+                                width: width / 1.2,
+                                height: height / 2.55,
+                                child: TopAnime(
+                                  1,
+                                  16,
+                                  curve: Curves.easeInExpo,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      TextField(
+                                        // readOnly: true, // * Just for Debug
+                                        cursorColor: Colors.black,
+                                        style: TextStyle(color: Colors.black),
+                                        showCursor: true,
+                                        //cursorColor: mainColor,
+                                        decoration: kTextFiledInputDecoration,
                                       ),
-                                    ),
+                                      SizedBox(
+                                        height: 25,
+                                      ),
+                                      TextField(
+                                          // readOnly: true, // * Just for Debug
+                                          cursorColor: Colors.black,
+                                          style: TextStyle(color: Colors.black),
+                                          showCursor: true,
+                                          //cursorColor: mainColor,
+                                          decoration: kTextFiledInputDecoration
+                                              .copyWith(labelText: "Password")),
+                                      SizedBox(
+                                        height: 25,
+                                      ),
+                                      TextField(
+                                        // readOnly: true, // * Just for Debug
+                                        cursorColor: Colors.black,
+                                        style: TextStyle(color: Colors.black),
+                                        showCursor: true,
+                                        //cursorColor: mainColor,
+                                        decoration:
+                                            kTextFiledInputDecoration.copyWith(
+                                                labelText: "Password again"),
+                                      ),
+
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+
+                                      // FaceBook and Google ICon
+                                      TopAnime(
+                                        1,
+                                        11,
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.facebookF,
+                                                size: 30,
+                                              ),
+                                              onPressed: () {},
+                                            ),
+                                            SizedBox(
+                                              width: 15,
+                                            ),
+                                            IconButton(
+                                              icon: FaIcon(
+                                                  FontAwesomeIcons.googlePlusG,
+                                                  size: 35),
+                                              onPressed: () {},
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                ],
-                              )
+                                ),
+                              ),
                             ],
                           ),
                         ),
 
-
-
-
-
-
-
-
-
-                        // Bottom 
-                        i == 0
+                        // Bottom
+                        i == 1
                             ? TopAnime(
                                 2,
-                                42,
+                                29,
                                 curve: Curves.fastOutSlowIn,
                                 child: Container(
                                   height: height / 6,
                                   // color: Colors.red,
                                   child: Stack(
                                     children: [
-                                      Positioned(
-                                        left: 30,
-                                        top: 15,
-                                        child: Text(
-                                          "Fogot Password?",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 43),
                                         child: Container(
@@ -309,11 +276,11 @@ Youtube: Programming with Flexz
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        SignUPScreen()));
+                                                        LoginScreen()));
                                           },
                                           child: Container(
                                             decoration: BoxDecoration(
-                                                color: Color(0xffF2C94C),
+                                                color: Color(0xffEB5757),
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
                                             width: width / 4,
@@ -330,11 +297,11 @@ Youtube: Programming with Flexz
                                   ),
                                 ),
                               )
-                            : SignUPScreen()
+                            : LoginScreen()
                       ],
                     ),
                   )
-                : SignUPScreen()),
+                : LoginScreen()),
       ),
     );
   }
