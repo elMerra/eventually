@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pandiller_alpha/screens/home_screen.dart';
 
 class BottomAppbarExample extends StatefulWidget {
   const BottomAppbarExample({Key? key}) : super(key: key);
@@ -9,75 +10,15 @@ class BottomAppbarExample extends StatefulWidget {
 
 class _BottomAppbarExampleState extends State<BottomAppbarExample> {
   FloatingActionButtonLocation _fabLocation =
-      FloatingActionButtonLocation.endDocked;
-  bool _isBottomBarNotched = false;
+      FloatingActionButtonLocation.centerDocked;
+  bool _isBottomBarNotched = true;
   bool _isFabMini = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        padding: const EdgeInsets.all(8),
-        children: <Widget>[
-          ListTile(
-            title: const Text('FloatingActionButton position:'),
-            trailing: DropdownButton<FloatingActionButtonLocation>(
-              value: this._fabLocation,
-              onChanged: (FloatingActionButtonLocation? newVal) {
-                if (newVal != null) {
-                  setState(() => this._fabLocation = newVal);
-                }
-              },
-              items: const [
-                DropdownMenuItem(
-                  value: FloatingActionButtonLocation.centerFloat,
-                  child: Text('centerFloat'),
-                ),
-                DropdownMenuItem(
-                  value: FloatingActionButtonLocation.endFloat,
-                  child: Text('endFloat'),
-                ),
-                DropdownMenuItem(
-                  value: FloatingActionButtonLocation.centerDocked,
-                  child: Text('centerDocked'),
-                ),
-                DropdownMenuItem(
-                  value: FloatingActionButtonLocation.endDocked,
-                  child: Text('endDocked'),
-                ),
-                DropdownMenuItem(
-                  value: FloatingActionButtonLocation.miniStartTop,
-                  child: Text('miniStartTop'),
-                ),
-                DropdownMenuItem(
-                  value: FloatingActionButtonLocation.startTop,
-                  child: Text('startTop'),
-                ),
-              ],
-            ),
-          ),
-          ListTile(
-            title: const Text('Mini FAB:'),
-            trailing: Switch(
-              value: this._isFabMini,
-              onChanged: (bool val) {
-                setState(() => this._isFabMini = val);
-              },
-            ),
-          ),
-          ListTile(
-            title: const Text('BottomAppBar notch:'),
-            trailing: Switch(
-              value: this._isBottomBarNotched,
-              onChanged: (bool val) {
-                setState(() => this._isBottomBarNotched = val);
-              },
-            ),
-          ),
-        ],
-      ),
+      body: HomeScreen(),
       floatingActionButton: FloatingActionButton(
-        mini: this._isFabMini,
         onPressed: () => showModalBottomSheet(
           context: context,
           builder: (BuildContext context) => Container(
@@ -86,22 +27,31 @@ class _BottomAppbarExampleState extends State<BottomAppbarExample> {
             child: const Text('Dummy bottom sheet'),
           ),
         ),
-        child: const Icon(Icons.add),
+        child: const Icon(
+          Icons.add,
+          size: 30,
+          color: Colors.black,
+        ),
       ),
       floatingActionButtonLocation: this._fabLocation,
-      bottomNavigationBar: this._buildBottomAppBar(context),
+      bottomNavigationBar: this.buildBottomAppBar(context),
     );
   }
 
-  BottomAppBar _buildBottomAppBar(BuildContext context) {
+  BottomAppBar buildBottomAppBar(BuildContext context) {
     return BottomAppBar(
       shape: this._isBottomBarNotched ? const CircularNotchedRectangle() : null,
-      color: Theme.of(context).primaryColor,
+      color: Theme.of(context).backgroundColor,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           // Bottom that pops up from the bottom of the screen.
           IconButton(
-            icon: const Icon(Icons.menu),
+            padding: EdgeInsets.all(18),
+            icon: const Icon(
+              Icons.home_filled,
+              size: 30,
+            ),
             onPressed: () => showModalBottomSheet(
               context: context,
               builder: (BuildContext context) => Container(
@@ -112,18 +62,11 @@ class _BottomAppbarExampleState extends State<BottomAppbarExample> {
             ),
           ),
           IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () => showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) => Container(
-                alignment: Alignment.center,
-                height: 200,
-                child: const Text('Dummy bottom sheet'),
-              ),
+            padding: EdgeInsets.all(18),
+            icon: const Icon(
+              Icons.more_vert,
+              size: 30,
             ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.more_vert),
             onPressed: () => showModalBottomSheet(
               context: context,
               builder: (BuildContext context) => Container(

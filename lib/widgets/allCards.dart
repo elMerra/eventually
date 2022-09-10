@@ -96,7 +96,7 @@ class Card4 extends StatelessWidget {
               children: <Widget>[
                 Positioned.fill(
                   child: Image.asset(
-                    'assets/images/man.png',
+                    'assets/images/logo.png',
                     fit: BoxFit.cover,
                   ),
                 ),

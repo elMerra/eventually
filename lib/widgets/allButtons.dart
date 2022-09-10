@@ -59,7 +59,7 @@ class Button2 extends StatelessWidget {
           onPressed: _showSnack,
           child: Text(
             buttonText,
-            style: const TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black, fontSize: 20),
           ),
         ),
       ],

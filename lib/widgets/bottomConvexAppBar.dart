@@ -1,5 +1,6 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:pandiller_alpha/screens/home_screen.dart';
 
 const _kPages = <String, IconData>{
   'home': Icons.home,
@@ -22,22 +23,11 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      
       length: 5,
       initialIndex: 2,
       child: Scaffold(
-        body: Column(
-          children: [
-            _buildStyleSelector(),
-            const Divider(),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  for (final icon in _kPages.values) Icon(icon, size: 64),
-                ],
-              ),
-            ),
-          ],
-        ),
+        body: const HomeScreen(),
         bottomNavigationBar: ConvexAppBar.badge(
           // Optional badge argument: keys are tab indices, values can be
           // String, IconData, Color or Widget.
@@ -50,28 +40,6 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
           onTap: (int i) => print('click index=$i'),
         ),
       ),
-    );
-  }
-
-  // Select style enum from dropdown menu:
-  Widget _buildStyleSelector() {
-    final dropdown = DropdownButton<TabStyle>(
-      value: _tabStyle,
-      onChanged: (newStyle) {
-        if (newStyle != null) setState(() => _tabStyle = newStyle);
-      },
-      items: [
-        for (final style in TabStyle.values)
-          DropdownMenuItem(
-            value: style,
-            child: Text(style.toString()),
-          )
-      ],
-    );
-    return ListTile(
-      contentPadding: const EdgeInsets.all(8),
-      title: const Text('appbar style:'),
-      trailing: dropdown,
     );
   }
 }
