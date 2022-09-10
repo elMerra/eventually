@@ -274,10 +274,12 @@ Youtube: Programming with Flexz
                                         child: GestureDetector(
                                           onTap: () {
                                             Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        HomeScreen())); // !  <-----This is the router to HomeScreen
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomeScreen(),
+                                              ),
+                                            ); // !  <-----This is the router to HomeScreen
                                           },
                                           child: Container(
                                             decoration: BoxDecoration(

@@ -3,15 +3,16 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pandiller_alpha/Widgets/allButtons.dart';
 import 'package:pandiller_alpha/widgets/allCards.dart';
 import 'package:pandiller_alpha/screens/home_screen_public.dart';
+import 'package:pandiller_alpha/widgets/profileImageAnimation.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class CardEvents extends StatefulWidget {
+  const CardEvents({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<CardEvents> createState() => _CardEventsState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CardEventsState extends State<CardEvents> {
   static const LatLng sourceLocation = LatLng(38.33500926, -122.03272188);
   @override
   Widget build(BuildContext context) {
@@ -71,85 +72,46 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: Stack(
-        children: <Widget>[
-          const SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: GoogleMap(
-                myLocationButtonEnabled: false,
-                zoomGesturesEnabled: true,
-                initialCameraPosition:
-                    CameraPosition(target: sourceLocation, zoom: 14.1),
-                mapType: MapType.normal),
-          ),
-          Positioned(
-            top: 65,
-            left: 35,
-            right: 35,
-            child: GestureDetector(
-              onTap: () {},
-              child: Container(
-                height: 55,
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.location_on,
-                      size: 25,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    const Expanded(
-                      child: Text(
-                        'Search Bar',
-                        style: TextStyle(fontSize: 20),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Icon(Icons.search,
-                        size: 25,
-                        color: Theme.of(context).textTheme.bodyText1!.color),
-                  ],
-                ),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+              height: 70,
+              child: ListView.builder(
+                itemCount: 10,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return SizedBox(
+                    width: 85,
+                    child: CircleAvatar(
+                        backgroundColor: Colors.blueGrey,
+                        child: Image.asset('./assets/images/icon.png')),
+                  );
+                },
               ),
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Tus amigos',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 622,
+              child: ListView.builder(
+                itemCount: 10,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (BuildContext context, int index) {
+                  return SizedBox(
+                    width: double.infinity,
+                    child: Card1(),
+                  );
+                },
               ),
-              SizedBox(
-                height: 220,
-                child: ListView.builder(
-                  itemCount: 10,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return const SizedBox(
-                      height: 200,
-                      width: 170,
-                      child: Card4(),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

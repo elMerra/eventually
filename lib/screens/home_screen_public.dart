@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pandiller_alpha/Widgets/allButtons.dart';
 import 'package:pandiller_alpha/widgets/allCards.dart';
-import 'package:pandiller_alpha/screens/home_screen_public.dart';
+import 'package:pandiller_alpha/screens/home_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreenPublic extends StatefulWidget {
+  const HomeScreenPublic({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreenPublic> createState() => _HomeScreenPublicState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenPublicState extends State<HomeScreenPublic> {
   static const LatLng sourceLocation = LatLng(38.33500926, -122.03272188);
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeScreen(),
+                ),
+              );
+            },
             icon: const Icon(
               Icons.map,
               size: 25,
@@ -81,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 zoomGesturesEnabled: true,
                 initialCameraPosition:
                     CameraPosition(target: sourceLocation, zoom: 14.1),
-                mapType: MapType.normal),
+                mapType: MapType.none),
           ),
           Positioned(
             top: 65,

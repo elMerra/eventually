@@ -11,12 +11,16 @@ class Card1 extends StatelessWidget {
       //elevation deteremines shade
       elevation: 10.0,
       child: SizedBox(
-        height: 100.0,
+        height: 180.0,
         child: Row(
-          children: const <Widget>[
+          children: <Widget>[
             Expanded(
               child: Text('Card 1'),
             ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [Text('Card 1'), Text('Card 1')],
+            )
           ],
         ),
       ),
@@ -91,44 +95,43 @@ class Card4 extends StatelessWidget {
       child: Column(
         children: <Widget>[
           SizedBox(
-            height: 180.0,
+            height: 100.0,
             child: Stack(
               children: <Widget>[
                 Positioned.fill(
                   child: Image.asset(
-                    'assets/images/logo.png',
+                    'assets/images/black.png',
                     fit: BoxFit.cover,
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   bottom: 16.0,
                   left: 16.0,
                   right: 16.0,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Card 4 complex example',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5!
-                          .copyWith(color: Colors.white),
-                    ),
                   ),
                 ),
               ],
             ),
           ),
           ButtonBar(
-            alignment: MainAxisAlignment.end,
             children: <Widget>[
-              TextButton(
-                onPressed: () {},
-                child: const Text('SHARE'),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: const Text('EXPLORE'),
+              Column(
+                children: const [
+                  Text(
+                    'UserName',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'sfdhalkjsfhdañskdfjhalsnkjdfhalskjdvhalkjdhfalkjshglajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', // ! Max 105 char
+                    style: TextStyle(fontSize: 15),
+                  )
+                ],
               ),
             ],
           )
