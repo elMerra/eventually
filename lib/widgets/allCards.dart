@@ -7,21 +7,51 @@ class Card1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.red,
+      margin: const EdgeInsets.all(15),
+      color: Colors.white,
       //elevation deteremines shade
-      elevation: 10.0,
+      elevation: 5.0,
       child: SizedBox(
-        height: 180.0,
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: Text('Card 1'),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [Text('Card 1'), Text('Card 1')],
-            )
-          ],
+        height: 175.0,
+        child: Container(
+          padding: const EdgeInsets.only(top: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Column(
+                children: [
+                  SizedBox(
+                    height: 50,
+                    width: 100,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.blueGrey,
+                      child: Image.asset(
+                        './assets/images/icon.png',
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: const [
+                  Text(
+                    'Card 1',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  Text(
+                    'Card 1',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ],
+              ),
+              Container(
+                child: const Icon(Icons.more_horiz),
+                padding: const EdgeInsets.only(left: 200),
+              )
+            ],
+          ),
         ),
       ),
     );

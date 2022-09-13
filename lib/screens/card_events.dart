@@ -76,7 +76,7 @@ class _CardEventsState extends State<CardEvents> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             SizedBox(
@@ -88,13 +88,14 @@ class _CardEventsState extends State<CardEvents> {
                   return SizedBox(
                     width: 85,
                     child: CircleAvatar(
-                        backgroundColor: Colors.blueGrey,
-                        child: Image.asset('./assets/images/icon.png')),
+                      backgroundColor: Colors.blueGrey,
+                      child: Image.asset('./assets/images/icon.png'),
+                    ),
                   );
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             SizedBox(
@@ -103,7 +104,7 @@ class _CardEventsState extends State<CardEvents> {
                 itemCount: 10,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (BuildContext context, int index) {
-                  return SizedBox(
+                  return const SizedBox(
                     width: double.infinity,
                     child: Card1(),
                   );
@@ -126,7 +127,7 @@ BottomAppBar buildBottomAppBar(BuildContext context) {
       children: <Widget>[
         // Bottom that pops up from the bottom of the screen.
         IconButton(
-          padding: EdgeInsets.all(18),
+          padding: const EdgeInsets.all(18),
           icon: const Icon(
             Icons.home_filled,
             size: 30,
@@ -141,7 +142,7 @@ BottomAppBar buildBottomAppBar(BuildContext context) {
           ),
         ),
         IconButton(
-          padding: EdgeInsets.all(18),
+          padding: const EdgeInsets.all(18),
           icon: const Icon(
             Icons.more_vert,
             size: 30,
